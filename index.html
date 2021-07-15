@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>我的导航</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header></header>
+    <main> 
+        <div class="wrapper" id="main1"></div>
+    </main>
+    <footer></footer>
+    <script>
+        var keys ={
+           0:['q','w','e','r','t','y','u','i','o','p'],
+           1:['a','s','d','f','g','h','j','k','l'],
+           2:['z','x','c','v','b','n','m'],
+           length: 3
+        }   //声明一个对象
+
+        var hash ={
+            q:'qq.com',
+            w:'weibo.com',
+            e:'ele.me',
+            r:'renren.com',
+            t:'tianya.com',
+            y:'youtube.cn',
+            u:'uc.com',
+            i:'iqiyi.com',
+            o:'opera.com',
+            p: undefined,
+            a:'acfun.tv',
+            s:'sohu.com',
+            z:'zhihu.com',
+            m:'www.mcdonalds.com.cn',
+        }
+        var hashInLocalStorage = JSON.parse(localStorage.getItem('uuu') || 'null')  // 取出localstorage中的uuu对应的hash
+        if(hashInLocalStorage){
+            hash = hashInLocalStorage
+        }   //覆盖
+
+        //遍历keys，生成kbd标签
+        index = 0
+        while(index < keys['length']){   //index=0,1,2
+            div1 = document.createElement('div')
+            main1.appendChild(div1)
+            row = keys[index]    //row 代表第一个数组、第二个数组、第三个数组
+            index2 = 0
+            while(index2 < row['length']){   //取值0-9，0-8, 0-6
+                kbd1 = document.createElement('kbd')
+                kbd1.textContent = row[index2]
+                div1.appendChild(kbd1)
+                button1 = document.createElement('button')
+                button1.textContent = '编辑'
+                button1.id = row[index2]
+                kbd1.appendChild(button1)
+                button1.onclick = function(dsdfre){   //button被点击的时候就执行这个代码
+                    key = dsdfre ['target']['id'] //也就是取这个哈希里面的target对应的哈希id  //q,w,e,r,d
+                    x = prompt('给我一个网址！')  //例如 baidu.com
+                    hash[key] = x  //hash变更
+                    localStorage.setItem('uuu', JSON.stringify(hash))  //存档
+                    console.log(hash)
+                }   
+                index2 = index2 + 1
+            }
+            index = index + 1
+        }
+
+        document.onkeypress = function(dsdfre){  //有键盘操作的时候就执行这个代码，监听Keypress事件
+            key = dsdfre['key']  // 拿到这个对应的键
+            website = hash[key]  // 找到这个键对应的网站
+            // location.href = 'http://' + website  //把当前网站地址变成新的网站
+            window.open('http://' + website, '_blank')  //在新的页面打开
+        }
+    </script>
+</body>
+</html>
