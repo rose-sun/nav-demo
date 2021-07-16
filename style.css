@@ -7,20 +7,46 @@ kbd{
     height: 4em;
     text-transform: uppercase;
     position: relative;
+    width: 50px;
+    height: 40px;
+    background: #474747;
+    background: -webkit-linear-gradient(bottom right, #474747, #111111);
+    background: -moz-linear-gradient(bottom right, #474747, #111111);
+    background: linear-gradient(to top left, #474747, #111111);
+    border: 1px solid #373737;
+    color: #C5C5C5;
+    border-radius: 8px;
+    box-shadow: 0 0 0 1px #1A1B1C, 0 0 0 2px #1F2020, 0 3px 0 2px #080808;
+    font-size: 17px;
+    font-family:Arial, Helvetica, sans-serif;
+    margin: 6px 10px;
+    position: relative;
+}
+body{
+    background:black url(./1.png) no-repeat center center;
+    background-size: cover;
 }
 main{
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 .wrapper{
     display: inline-block;
+    background:rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    box-shadow: 4px 4px 5px -7px rgba(255,168,171,1);
+    margin: 10px;
 }
 
 .wrapper >div:nth-child(2){
-    margin-left: 2em;
+    margin-left: 1em;
 }
 
 .wrapper >div:nth-child(3){
-    margin-left: 4em;
+    margin-left: 1em;
 }
 
 kbd > button{
@@ -32,4 +58,20 @@ kbd > button{
 
 kbd:hover > button{
     display: inline-block;
+}
+
+.row{
+    margin: 20px;
+}
+
+kbd >img{
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: 4px;
+    bottom: 2px;
+}
+
+.key .text{
+    position: absolute; left: 4px; top: 2px;
 }
