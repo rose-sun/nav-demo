@@ -117,7 +117,7 @@
         }
 
         function listenToUser(hash){
-            document.onkeypress = function (dsdfre) {  //有键盘操作的时候就执行这个代码，监听Keypress事件
+            document.onkeypress = function (dsdfre) {  //注意是document，有键盘操作的时候就执行这个代码，监听Keypress事件
             var key = dsdfre['key']  // 拿到这个对应的键
             var website = hash[key]  // 找到这个键对应的网站
             // location.href = 'http://' + website  //把当前网站地址变成新的网站
